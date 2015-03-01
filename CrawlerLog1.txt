@@ -1,0 +1,13 @@
+URL 		 LinksSize 		 Pagescore 		 Pagelen 		 timeWhenfeteched
+http://animal.discovery.com/breed-selector/dog-breeds.html 		108 		0.0780638813563 		41671 		14:08:29.897381
+http://asiadognyc.com/menu 		5 		0.0935174078964 		4044 		14:08:54.083322
+http://www.huffingtonpost.com/news/dogs/ 		491 		0.0754000163153 		171618 		14:08:26.798711
+http://theinvisibledog.org/ 		246 		0.080733595918 		89443 		14:08:34.019407
+http://thegooddogfoundation.org/ 		38 		0.108777473166 		21521 		14:08:27.259974
+http://asiadognyc.com/ 		7 		0.0625422582826 		2956 		14:08:26.634896
+http://www.crifdogs.com/ 		10 		0.0690045248869 		3536 		14:08:27.537880
+
+Errorcode54 Connection reset by peer
+Errorcode2 No such file or directory
+Errorcode54 Connection reset by peer
+Total size of the pages that were downloaded is : 334789

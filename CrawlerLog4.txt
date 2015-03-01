@@ -1,0 +1,12 @@
+URL 		 LinksSize 		 Pagescore 		 Pagelen 		 timeWhenfeteched
+http://www.incredibleindia.org/ 		58 		0.22024691358 		12150 		14:54:09.390000
+http://topics.nytimes.com/top/news/international/countriesandterritories/india/ 		487 		0.233843615363 		119902 		14:54:09.079000
+http://en.wikipedia.org/wiki/India 		3497 		0.235141752996 		769825 		14:54:09.952000
+http://timesofindia.indiatimes.com/india 		583 		0.217530672325 		267668 		14:54:08.970000
+http://www.theguardian.com/world/india 		179 		0.148591646162 		130862 		14:54:08.770000
+http://www.indiatimes.com/ 		453 		0.326296008488 		173285 		14:54:10.382000
+http://wikitravel.org/en/India 		781 		0.26751516554 		302495 		14:54:09.495000
+https://www.cia.gov/library/publications/the-world-factbook/geos/in.html 		631 		0.198352534679 		296941 		14:54:09.204000
+http://topics.bloomberg.com/india/ 		365 		0.191782157702 		82041 		14:54:08.648000
+Errorcode22 The filename, directory name, or volume label syntax is incorrect
+Total size of the pages that were downloaded is : 2155169

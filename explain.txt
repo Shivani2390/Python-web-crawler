@@ -1,0 +1,73 @@
+----Objective----
+The program is a focused crawler and performs the function of crawling the web for a given search query and the total number of pages to be crawled('n') based n the user's input.
+It returns the most relevant pages based on the query input.
+
+----How the program works----
+1.	The program first asks the user for the search query and the number of pages that the program should return.
+2.	After this the query is refined to remove the stop words and unnecessary punctuation marks from the query.
+3.	This changed query is then passed to the Google search engine, the search result from Google is parsed and the first 10 links are returned for further processing.
+4.	The 10 links attained from Google then go through checks to read the robots.txt file and the mime type of the page. 
+	If the link clears the checks it then gets parsed for the HTML content. After this the program finds out the score of the page.
+5.	Once this is done it gets added to the priority queue based on its score.
+6.	Steps 4 and 5 are repeated for all the 10 links from Google.
+7.	The program then starts threads equal to the number of pages to be crawled. Each thread's actvity includes getting the url from the queue, parsing for the HTML content of the URL and writing it out into the file system. Check again if it can be parsed or not and then find out 
+	all the links present on the page and parse them to find out their score and add them to the queue. The threads wait as long as the queue is empty.
+	All these threads are declared as daemon. So as soon as we get the pages the threads are killed and the log is written to the Crawler Log.txt.
+8. 	To handle concurrency issues the program implements the concept of locks.
+
+
+----Important functions / Special Features----
+myThread(threading.Thread)
+This method processes each thread. Every thread performs a set of operations which includes getting the url from the queue, parsing for the HTML content of the URL and writing it out into the file system. Incrementing the page count. Check again if it can be parsed or not and then find out 
+all the links present on the page and parse them to find out their score and add them to the queue. The threads wait as long as the queue is empty.
+
+
+class PriorityQueue()
+This class implements the most important data structure used in the program.. The PriorityQueue is used to calculate the score of a page which indicates how relevant the page is to the given user's search query.
+It contains the __calculateIndex(self, item, start, end) method which calculates the index for a given item[pagescore, url] using a binary search algorithm.
+enqueue(self, item) and dequeue(self) are used to add and remove elements from the queue.
+updateQueue(self, index, score) updates the queue if an item is already present, it recalculates the score is stores the new score.
+
+class ParsedLinks()
+This class contains an important data structure called parsedLinks which is a dictionary that stores all the links that have already been parsed and their details.
+
+class Parser(htmllib.HTMLParser)
+This class is used to parse a given HTML content and return the links present in it using the HTMLparser library.
+
+google_scrape(query)
+This method takes the query as an input and uses urllib2 library to perform a search in Google and return the result page. 
+Using BeautifulSoup library, from this result page we parse out the top 10 links and return them.
+
+findScore(page, query, parentScore)
+This method is used to find out the score of a page based on the query. 
+The score of a page depends upon how many times a word from the changedQuery appears in the page divided by the total number of words in the page and also the score of the parent page.
+
+checkIfWebsiteCrawlable(url)
+This method is used to implement the Robots exclusion protocol. 
+It checks if the robots.txt file is present and returns the contents which indicates what part of the page is not crawable.
+
+checkCorrectPage(url)
+This method checks the mime type of the page to make sure that only correct pages are being crawled against the ignoredMimeTypeList. 
+If mime is None then checks for the content type of the file using the info() method of urllib.urlopen()
+
+
+----Errors / missing features----
+The program does not handle the following-
+	Error code number 54 - connection reset with peer.
+	Error code url - unknown url type.
+	Error code 2 - no such file or directory.
+	Error Code 11004 - Socket error..
+	Error code 22 - filename, directory name, or volume label name is incorrect.
+	Javascript pages.
+	
+On windows platform after a certain time of execution of program we see a trail of random numbers. 
+	
+
+
+
+
+
+
+
+
+
